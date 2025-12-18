@@ -72,4 +72,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // Handle Appointment Button Clicks
+    const appointmentButtons = document.querySelectorAll('.js-appointment-btn');
+    appointmentButtons.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const targetUrl = 'https://user.cureconnect.fun/user';
+            
+            try {
+                // Try to fetch the URL with no-cors mode to check connectivity
+                // If the server is down or unreachable, fetch will throw an error
+                await fetch(targetUrl, { mode: 'no-cors' });
+                // If fetch succeeds (even with 404/500), we proceed
+                window.location.href = targetUrl;
+            } catch (error) {
+                // Network error (server unreachable)
+                alert('appointment is not closed');
+            }
+        });
+    });
 });
