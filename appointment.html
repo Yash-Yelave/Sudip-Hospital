@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Sudip Hospital</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .appointment-page {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+        }
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar" style="position: sticky;">
+        <div class="container">
+            <a href="index.html" class="logo">Sudip<span>Hospital</span></a>
+            <a href="index.html" class="btn-text">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="appointment-page">
+            <h2 class="text-primary">Book Your Appointment</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">Fill out the form below and we will contact you shortly.</p>
+            
+            <form id="appointmentForm" onsubmit="event.preventDefault(); showSuccess();">
+                <div class="form-group">
+                    <label>Patients Name</label>
+                    <input type="text" required placeholder="Enter full name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" required placeholder="Enter mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Doctor</label>
+                    <select required>
+                        <option value="">Select Doctor</option>
+                        <option value="kamlesh">Dr. Kamlesh Yeshi (Ortho)</option>
+                        <option value="namrata">Dr. Namrata Yeshi (ENT)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Confirm Booking</button>
+            </form>
+
+            <div id="success" class="success-message">
+                <strong>Request Sent!</strong> <br> Thank you. Our reception will call you to confirm your slot.
+            </div>
+            
+            <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                <p>Or call us directly:</p>
+                <h3 class="text-primary">+91 12345 67890</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSuccess() {
+            document.getElementById('appointmentForm').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
